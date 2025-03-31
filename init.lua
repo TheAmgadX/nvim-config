@@ -3,6 +3,11 @@ local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 vim.g.mapleader = " "  -- Set leader to Space
 vim.g.maplocalleader = " "  -- Set local leader to Space
 
+vim.opt.tabstop = 4        -- Number of spaces a <Tab> counts for
+vim.opt.shiftwidth = 4     -- Number of spaces used for auto-indent
+vim.opt.expandtab = true   -- Convert tabs to spaces
+
+
 -- Auto-install lazy.nvim if not present
 if not vim.uv.fs_stat(lazypath) then
   print('Installing lazy.nvim....')
