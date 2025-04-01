@@ -33,42 +33,36 @@ require('lazy').setup({
   {'akinsho/bufferline.nvim', dependencies = {'nvim-tree/nvim-web-devicons'}},
   {'windwp/nvim-autopairs'},
   {'L3MON4D3/LuaSnip'},
-  {'rose-pine/neovim', name = 'rose-pine'}
+  {'rose-pine/neovim', name = 'rose-pine'},
+  {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'}
 })
 
 -- 🎨 Theme Setup
---[[
--- Catppuccin Theme (commented out, previously used)
-require("catppuccin").setup({
-  flavour = "macchiato",
-  transparent_background = true,
-  integrations = {
-    treesitter = true,
-    nvimtree = true,
-    telescope = true,
-    bufferline = true,
-  }
-})
--- vim.cmd.colorscheme("catppuccin")
-]]
-
--- Rose Pine Theme (Active)
 require('rose-pine').setup({
-    variant = 'main',
+      variant = 'main',
     dark_variant = 'main',
     enable_transparent = true,
     styles = {
-        bold = true,
-        italic = true,
-        transparency = true,
-    },
-})
+         bold = false,
+         italic = true,
+         transparency = true,
+     },
+ })
 
 vim.cmd.colorscheme("rose-pine")
 
 -- Ensure Neovim uses transparency
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+-- 🛠️ Treesitter Configuration
+require('nvim-treesitter.configs').setup {
+  ensure_installed = {"c", "cpp", "go", "python", "html", "css", "javascript", "lua"},
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
 
 -- 🔧 LSP Setup
 local lspconfig_defaults = require('lspconfig').util.default_config
@@ -142,4 +136,3 @@ vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { noremap = true, sil
 
 -- 🔄 Auto Pairs (Brackets)
 require('nvim-autopairs').setup()
-

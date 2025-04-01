@@ -51,6 +51,17 @@ This setup uses **Rose Pine** by default. To change the theme:
    ```
 4. Restart Neovim.
 
+### Adding a New Language to Treesitter
+1. Open Neovim and run:
+   ```bash
+   :TSInstall <language>
+   ```
+   Example for Rust:
+   ```bash
+   :TSInstall rust
+   ```
+2. Restart Neovim to apply changes.
+
 ### Changing Keybindings
 1. Open `init.lua`
 2. Modify the `vim.keymap.set()` entries.
@@ -94,4 +105,3 @@ This setup uses **Rose Pine** by default. To change the theme:
 | `<leader>g`   | Live grep (Telescope)          |
 | `<Tab>`       | Next buffer                    |
 | `<S-Tab>`     | Previous buffer                |
-
