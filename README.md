@@ -95,7 +95,3 @@ This setup uses **Rose Pine** by default. To change the theme:
 | `<Tab>`       | Next buffer                    |
 | `<S-Tab>`     | Previous buffer                |
 
-## 📜 License
-MIT License
-
-
