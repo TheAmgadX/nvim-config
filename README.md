@@ -1,7 +1,7 @@
 # Neovim Config Setup
 
 ## 🚀 Introduction
-This repository contains my customized Neovim setup using **lazy.nvim** for plugin management. It includes a modern theme, LSP support, auto-completion, file explorer, and more.
+This repository contains my customized Neovim setup using **lazy.nvim** for plugin management. It includes a modern theme, LSP support, auto-completion, file explorer, buffer management, and more.
 
 ## 📥 Installation
 ### Prerequisites
@@ -20,14 +20,16 @@ nvim
 ```
 
 ## 🎨 Themes
-This setup uses **Catppuccin Mocha** by default. To change the theme:
+This setup uses **Rose Pine** by default. To change the theme:
 1. Open `init.lua`
-2. Modify the `flavour` inside the `require("catppuccin").setup()` block:
+2. Modify the theme configuration:
    ```lua
-   require("catppuccin").setup({
-     flavour = "latte", -- Options: latte, frappe, macchiato, mocha
+   require('rose-pine').setup({
+       variant = 'main',  -- Options: 'main', 'moon', 'dawn'
+       dark_variant = 'main',
+       enable_transparent = true, -- Enables transparent background
    })
-   vim.cmd.colorscheme("catppuccin")
+   vim.cmd.colorscheme("rose-pine")
    ```
 
 ## 🛠️ Features
@@ -71,11 +73,27 @@ This setup uses **Catppuccin Mocha** by default. To change the theme:
 ### LSP Keybindings
 | Shortcut  | Action                      |
 |----------|-----------------------------|
+| `K`      | Hover documentation         |
 | `gd`     | Go to definition            |
 | `gr`     | Find references             |
 | `gi`     | Go to implementation        |
 | `go`     | Type definition             |
+| `gf`     | Signature help              |
 | `nc`     | Rename symbol               |
+| `F`      | Format code                 |
+| `<F2>`   | Code actions                |
+
+### Other Keybindings
+| Shortcut       | Action                           |
+|---------------|---------------------------------|
+| `<C-Space>`   | Trigger completion menu        |
+| `<C-u>`       | Scroll completion up           |
+| `<C-d>`       | Scroll completion down         |
+| `<leader>e`   | Toggle file explorer           |
+| `<leader>f`   | Find files (Telescope)         |
+| `<leader>g`   | Live grep (Telescope)          |
+| `<Tab>`       | Next buffer                    |
+| `<S-Tab>`     | Previous buffer                |
 
 ## 📜 License
 MIT License
