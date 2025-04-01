@@ -63,6 +63,7 @@ require('rose-pine').setup({
         transparency = true,
     },
 })
+
 vim.cmd.colorscheme("rose-pine")
 
 -- Ensure Neovim uses transparency
@@ -98,7 +99,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local lspconfig = require('lspconfig')
 lspconfig.gopls.setup({})
 lspconfig.clangd.setup({})
-lspconfig.tsserver.setup({})
+lspconfig.ts_ls.setup({})
 lspconfig.html.setup({})
 lspconfig.cssls.setup({})
 lspconfig.pyright.setup({})
