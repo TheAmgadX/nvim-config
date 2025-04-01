@@ -6,7 +6,7 @@ vim.g.maplocalleader = " "  -- Set local leader to Space
 vim.opt.tabstop = 4        -- Number of spaces a <Tab> counts for
 vim.opt.shiftwidth = 4     -- Number of spaces used for auto-indent
 vim.opt.expandtab = true   -- Convert tabs to spaces
-
+vim.opt.relativenumber = true -- Relative Numbers
 
 -- Auto-install lazy.nvim if not present
 if not vim.uv.fs_stat(lazypath) then
