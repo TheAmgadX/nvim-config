@@ -24,6 +24,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- 📦 Plugin Setup using lazy.nvim
 require('lazy').setup({
+  {'EdenEast/nightfox.nvim'},
   {'catppuccin/nvim', name = 'catppuccin'},
   {'neovim/nvim-lspconfig'},
   {'hrsh7th/cmp-nvim-lsp'},
@@ -34,26 +35,56 @@ require('lazy').setup({
   {'windwp/nvim-autopairs'},
   {'L3MON4D3/LuaSnip'},
   {'rose-pine/neovim', name = 'rose-pine'},
-  {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'}
+  {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+  {'nvim-lualine/lualine.nvim'},  
+  {'airblade/vim-rooter'},  
 })
 
--- 🎨 Theme Setup
-require('rose-pine').setup({
-      variant = 'main',
-    dark_variant = 'main',
-    enable_transparent = true,
-    styles = {
-         bold = false,
-         italic = true,
-         transparency = true,
-     },
- })
+-- 🎨 Theme Setup rose-pine [Not Used]
+-- require('rose-pine').setup({
+--       variant = 'main',
+--     dark_variant = 'main',
+--     enable_transparent = true,
+--     styles = {
+--          bold = false,
+--          italic = true,
+--          transparency = true,
+--      },
+--  })
+--
+-- vim.cmd.colorscheme("rose-pine")
 
-vim.cmd.colorscheme("rose-pine")
+-- 🎨 Theme Setup
+require('nightfox').setup({
+  options = {
+    transparent = true,  -- Enable transparency
+    italic = true,
+    bold = false,
+  },
+})
+
+-- Set the theme to Carbonfox or Duskfox
+vim.cmd.colorscheme("duskfox")  -- or "duskfox"
+
 
 -- Ensure Neovim uses transparency
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+-- 🎨 Lualine Configuration
+require('lualine').setup {
+  options = {
+    theme = 'nightfox',  -- Set your preferred theme here
+  },
+  sections = {
+    lualine_c = {'filename', 'location', 'filetype'},
+    lualine_x = {'encoding', 'fileformat', 'branch'},
+  },
+}
+
+-- 📂 Vim Rooter Configuration
+vim.g.rooter_patterns = {'.git', 'Makefile', 'package.json', '.env'}  -- Patterns to detect project root
+
 
 -- 🛠️ Treesitter Configuration
 require('nvim-treesitter.configs').setup {
