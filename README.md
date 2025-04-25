@@ -1,3 +1,4 @@
+```markdown
 # Neovim Config Setup
 
 ## 🚀 Introduction
@@ -20,16 +21,28 @@ nvim
 ```
 
 ## 🎨 Themes
-This setup uses **Rose Pine** by default. To change the theme:
+This setup uses **Nightfox** theme by default (you can choose between **Carbonfox** or **Duskfox**).
+
+To change the theme:
 1. Open `init.lua`
 2. Modify the theme configuration:
    ```lua
-   require('rose-pine').setup({
-       variant = 'main',  -- Options: 'main', 'moon', 'dawn'
-       dark_variant = 'main',
-       enable_transparent = true, -- Enables transparent background
+   -- Theme configuration using Nightfox
+   require('nightfox').setup({
+       options = {
+           transparent = true,    -- Enable transparent background
+           terminal_colors = true, -- Use terminal colors
+       },
+       palettes = {
+           carbonfox = {
+               bg = '#1f1f1f',  -- Example for Carbonfox
+           },
+           duskfox = {
+               bg = '#232a3d',  -- Example for Duskfox
+           },
+       }
    })
-   vim.cmd.colorscheme("rose-pine")
+   vim.cmd.colorscheme("carbonfox")  -- or "duskfox" based on your choice
    ```
 
 ## 🛠️ Features
@@ -105,3 +118,4 @@ This setup uses **Rose Pine** by default. To change the theme:
 | `<leader>g`   | Live grep (Telescope)          |
 | `<Tab>`       | Next buffer                    |
 | `<S-Tab>`     | Previous buffer                |
+
